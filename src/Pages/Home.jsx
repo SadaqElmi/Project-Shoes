@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // eslint-disable-next-line no-unused-vars
 import React, { useRef, useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
@@ -40,6 +41,7 @@ const Home = () => {
 
   return (
     <>
+    {/*  Hero Section  */}
       <motion.section
         className="container p-2 max-w-screen-xl"
         initial={{ opacity: 0, y: 50 }}
@@ -82,6 +84,9 @@ const Home = () => {
           />
         </div>
       </motion.section>
+
+      {/* Second Hero Section  */}
+
       <motion.section
         className="container p-2 max-w-screen-xl"
         initial={{ opacity: 0, y: 50 }}
@@ -164,6 +169,9 @@ const Home = () => {
         </div>
       </motion.section>
 
+
+{/* Section New Arrivals  */}
+
       <div className=" flex justify-between px-2">
         <p className="font-bold text-[40px]">New Arrivals</p>
         <div className="flex justify-center items-center">
@@ -173,6 +181,8 @@ const Home = () => {
         </div>
       </div>
 
+    {/* Nike Shoes  */}
+    <h1 className="text-lg font-bold pl-3">Nike Shoes</h1>
       <motion.section
         className="NewArrival container flex p-2 max-w-screen-xl gap-3 items-center"
         initial={{ opacity: 0, y: 50 }}
@@ -180,36 +190,82 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2 items-center">
+        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Nike</h5>
+      <div className="flex items-center justify-center">
           <img
-            className="w-[200px] h-40"
-            src="/public/images/Nike shoes.png"
+            className="w-[200px] h-40 object-contain"
+            src="/public/nike/nike__5 (1).png"
             alt=""
           />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$50</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
         </div>
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2 items-center">
-          <img
-            className="w-[200px] h-40"
-            src="/public/images/Nike shoes.png"
-            alt=""
-          />
         </div>
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2 items-center">
-          <img
-            className="w-[200px] h-40"
-            src="/public/images/Nike shoes.png"
-            alt=""
-          />
-        </div>
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2 items-center">
-          <img
-            className="w-[200px] h-40"
-            src="/public/images/Nike shoes.png"
-            alt=""
-          />
-        </div>
-      </motion.section>
 
+
+        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Nike</h5>
+      <div className="flex items-center justify-center">
+          <img
+            className="w-[200px] h-40 object-cover"
+            src="/public/nike/nike__5 (2).png"
+            alt=""
+          />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$50</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
+        </div>
+        </div>
+
+
+        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Nike</h5>
+      <div className="flex items-center justify-center">
+          <img
+            className="w-[200px] h-40 object-cover"
+            src="/public/nike/nike__5 (3).png"
+            alt=""
+          />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$50</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
+        </div>
+        </div>
+
+        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Nike</h5>
+      <div className="flex items-center justify-center">
+          <img
+            className="w-[200px] h-40 object-contain"
+            src="/public/nike/nike__5 (4).png"
+            alt=""
+          />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$50</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
+        </div>
+        </div>
+
+
+
+        
+      </motion.section>
+{/* Jorden Shoes  */}
+<h1 className="text-lg font-bold pl-3">Jordan Shoes</h1>
       <motion.section
         className="NewArrival-second line container flex p-2 max-w-screen-xl gap-3 items-center"
         initial={{ opacity: 0, y: 50 }}
@@ -217,13 +273,24 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2 items-center">
+         <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Nike</h5>
+      <div className="flex items-center justify-center">
           <img
-            className="w-[200px] h-40"
-            src="/public/images/Nike Swoosh.png"
+            className="w-[200px] h-40 object-contain"
+            src="/public/nike/nike__5 (1).png"
             alt=""
           />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$50</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
         </div>
+        </div>
+
+        
         <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2 items-center">
           <img
             className="w-[200px] h-40"
@@ -246,7 +313,8 @@ const Home = () => {
           />
         </div>
       </motion.section>
-
+      {/* Addidas Shoes  */}
+      <h1 className="text-lg font-bold pl-3">Addidas Shoes</h1>
       <motion.section
         className="details container p-2 flex gap-4 max-w-screen-xl"
         initial={{ opacity: 0, y: 50 }}
