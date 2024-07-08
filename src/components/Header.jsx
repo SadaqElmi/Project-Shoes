@@ -31,7 +31,7 @@ const Header = () => {
               alt="logo"
             />
             <div className="items-center">
-              <ul className="flex items-center gap-4 cursor-pointer text-black/80 text-sm font-sans font-semibold">
+              <ul className="flex  gap-4 cursor-pointer text-black/80 text-sm font-sans font-semibold">
                 <li className="font-bold">
                   <Link to="/">HOME</Link>
                 </li>
@@ -39,7 +39,7 @@ const Header = () => {
                   <li
                     onMouseEnter={() => setIsShopOpen(true)}
                     onMouseLeave={() => setIsShopOpen(false)}
-                    className="relative items-center py-2"
+                    className="relative items-center"
                   >
                     SHOP
                     <ChevronDown className="inline-block w-5" />
