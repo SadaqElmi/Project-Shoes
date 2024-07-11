@@ -339,7 +339,7 @@ const Home = () => {
       </motion.section>
       <Link
         className="float-right px-3 rounded-[5px] text-center  text-lg bg-black  mr-6 text-white"
-        to="/Nike"
+        to="/Jordan"
       >
         Show More{" "}
       </Link>
