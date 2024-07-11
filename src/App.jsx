@@ -8,8 +8,8 @@ import Jorden from "./Pages/Jorden";
 // import Shop from "./Pages/Shop"
 import Cart from "./Pages/Cart";
 import Adidas from "./Pages/Adidas";
-import Favorites from "./Pages/Favorites";
-import Login from "./Pages/Login";
+
+
 
 function App() {
   return (
@@ -25,8 +25,8 @@ function App() {
             {/* <Route path="/shop" element={<Shop/>}/> */}
             <Route path="/cart" element={<Cart />} />
             <Route path="/adidas" element={<Adidas />} />
-            <Route path="/favorites" element={<Favorites />} />
-            <Route path="/login" element={<Login />} />
+        
+       
           </Route>
         </Routes>
       </Router>

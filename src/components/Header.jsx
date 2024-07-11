@@ -1,4 +1,4 @@
-import { ChevronDown, Heart, Search, X } from "lucide-react";
+import { ChevronDown, Search, X } from "lucide-react";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -111,22 +111,18 @@ const Header = () => {
                 />
               )}
             </div>
-            <div className="Cart relative">
+            <div className="Cart relative flex items-center">
               <Link to="/cart">
                 <IoBagHandleOutline className="text-2xl" />
               </Link>
-              <span className="items-center absolute top-[-12px] text-white right-[-7px] rounded-full border px-[5px] bg-green-500 py-[1px] text-xs font-semibold transition-colors">
+              <span className="items-center absolute top-[5px] text-white right-[-7px] rounded-full border px-[5px] bg-green-500 py-[1px] text-xs font-semibold transition-colors">
                 0
               </span>
             </div>
-            <div className="Favorites">
-              <Link to="/favorites">
-                <Heart className="text-2xl" />
-              </Link>
+            <div className="Profile ">
+              <img className="w-[40px] h-[40px]  rounded-full cursor-pointer" src="/public/logo/luffy.jpg" alt="Luffy" />
             </div>
-            <button className="text-md font-bold hover:underline">
-              <Link to="/login">Login</Link>
-            </button>
+           
           </div>
         </div>
       </div>
