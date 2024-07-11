@@ -11,6 +11,7 @@ import {
   PiVan,
   PiWallet,
 } from "react-icons/pi";
+import {Link} from "react-router-dom"
 
 const Home = () => {
   const videoRef = useRef(null);
@@ -260,12 +261,18 @@ const Home = () => {
         </div>
         </div>
 
-
+ 
 
         
       </motion.section>
+    
+      <Link className="float-right px-3 rounded-[5px] text-center  text-lg bg-black  mr-6 text-white" 
+      to="/Nike">Show More </Link>
+
+
+      
 {/* Jorden Shoes  */}
-<h1 className="text-lg font-bold pl-3">Jordan Shoes</h1>
+<h1 className="text-lg font-bold pl-3 mt-10">Jordan Shoes</h1>
       <motion.section
         className="NewArrival-second line container flex p-2 max-w-screen-xl gap-3 items-center"
         initial={{ opacity: 0, y: 50 }}
@@ -273,6 +280,8 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
+        <div className="flex gap-2 w-[100%]">
+
          <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
         <h5 className="text-sm">Nike</h5>
       <div className="flex items-center justify-center">
@@ -289,34 +298,152 @@ const Home = () => {
        </button>
         </div>
         </div>
+         <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Nike</h5>
+      <div className="flex items-center justify-center">
+          <img
+            className="w-[200px] h-40 object-contain"
+            src="/public/nike/nike__5 (1).png"
+            alt=""
+          />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$50</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
+        </div>
+        </div>
+         <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Nike</h5>
+      <div className="flex items-center justify-center">
+          <img
+            className="w-[200px] h-40 object-contain"
+            src="/public/nike/nike__5 (1).png"
+            alt=""
+          />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$50</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
+        </div>
+        </div>
+         <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Nike</h5>
+      <div className="flex items-center justify-center">
+          <img
+            className="w-[200px] h-40 object-contain"
+            src="/public/nike/nike__5 (1).png"
+            alt=""
+          />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$50</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
+        </div>
+        </div>
+        </div>
 
 
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2 items-center">
-          <img
-            className="w-[200px] h-40"
-            src="/public/images/Nike Swoosh.png"
-            alt=""
-          />
-        </div>
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2 items-center">
-          <img
-            className="w-[200px] h-40"
-            src="/public/images/Nike Swoosh.png"
-            alt=""
-          />
-        </div>
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2 items-center">
-          <img
-            className="w-[200px] h-40"
-            src="/public/images/Nike Swoosh.png"
-            alt=""
-          />
-        </div>
       </motion.section>
+        <Link className="float-right px-3 rounded-[5px] text-center  text-lg bg-black  mr-6 text-white" 
+      to="/Nike">Show More </Link>
+
+
+
       {/* Addidas Shoes  */}
-      <h1 className="text-lg font-bold pl-3">Addidas Shoes</h1>
+      <h1 className="text-lg font-bold pl-3 mt-10">Addidas Shoes</h1>
       <motion.section
-        className="details container p-2 flex gap-4 max-w-screen-xl"
+        className="NewArrival-second line container flex p-2 max-w-screen-xl gap-3 items-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="flex gap-2 w-[100%]">
+
+         <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Adidas</h5>
+      <div className="flex items-center justify-center">
+          <img
+            className="w-[200px] h-40 object-contain"
+            src="/public/addidas/adidas (1).png"
+            alt=""
+          />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$60</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
+        </div>
+        </div>
+         <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Adidas</h5>
+      <div className="flex items-center justify-center">
+          <img
+            className="w-[200px] h-40 object-contain"
+            src="/public/addidas/adidas (2).png"
+
+            alt=""
+          />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$30</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
+        </div>
+        </div>
+         <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Adidas</h5>
+      <div className="flex items-center justify-center">
+          <img
+            className="w-[200px] h-40 object-contain"
+            src="/public/addidas/adidas (3).png"
+
+            alt=""
+          />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$70</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
+        </div>
+        </div>
+         <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
+        <h5 className="text-sm">Adidas</h5>
+      <div className="flex items-center justify-center">
+          <img
+            className="w-[200px] h-40 object-contain"
+            src="/public/addidas/adidas (4).png"
+
+            alt=""
+          />
+      </div>
+      <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
+     <h5 className="text-sm">$20</h5>
+     <button className="py-1 px-4 bg-black text-white rounded-lg">
+      Add to bag
+       </button>
+        </div>
+        </div>
+        </div>
+
+
+      </motion.section>
+      <Link className="float-right px-3 rounded-[5px] text-center  text-lg bg-black  mr-6 text-white" 
+      to="/Adidas">Show More </Link>
+
+
+
+      <motion.section
+        className="details container p-2 flex gap-4 max-w-screen-xl mt-10"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
