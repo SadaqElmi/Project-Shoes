@@ -290,7 +290,7 @@ const Home = () => {
         </div>
         </div>
 
-        
+
         <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2 items-center">
           <img
             className="w-[200px] h-40"
@@ -355,7 +355,7 @@ const Home = () => {
       </motion.section>
 
       <div className="flex justify-between px-2">
-        <p className="font-bold text-[40px]">Blog Post</p>
+        <p className="font-bold text-[40px] pl-2">Blog Post</p>
         <div className="flex justify-center items-center">
           <button className="bg-black text-white p-2 rounded-full px-4 hover:text-gray-300">
             Explore more
