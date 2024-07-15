@@ -331,11 +331,7 @@ const Home = () => {
 
       <div className="flex justify-between px-2">
         <p className="font-bold text-[40px] pl-2">Blog Post</p>
-        <div className="flex justify-center items-center">
-          <button className="bg-black text-white p-2 rounded-full px-4 hover:text-gray-300">
-            Explore more
-          </button>
-        </div>
+        
       </div>
       <motion.section
         className="plog post container p-2 max-w-screen-xl flex gap-4"

@@ -22,10 +22,13 @@ const cartReducer = (state, action) => {
 
       let updatedCart = [...state.cart];
       if (existingProductIndex >= 0) {
-        // Update the quantity of the existing item by 1
-        updatedCart[existingProductIndex].quantity += 1;
+        // Update the quantity of the existing item
+        updatedCart[existingProductIndex] = {
+          ...updatedCart[existingProductIndex],
+          quantity: updatedCart[existingProductIndex].quantity + 1,
+        };
       } else {
-        // Add new item to the cart with quantity 1
+        // Add new item to the cart
         updatedCart.push({ product, color, size, quantity: 1 });
       }
 
@@ -39,6 +42,34 @@ const cartReducer = (state, action) => {
       const updatedCart = state.cart.filter(
         (item) => !(item.product.id === productId && item.color.name === color && item.size.name === size)
       );
+
+      return {
+        ...state,
+        cart: updatedCart,
+      };
+    }
+    case 'INCREASE_QUANTITY': {
+      const { productId, color, size } = action.payload;
+      const updatedCart = state.cart.map((item) => {
+        if (item.product.id === productId && item.color.name === color && item.size.name === size) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+
+      return {
+        ...state,
+        cart: updatedCart,
+      };
+    }
+    case 'DECREASE_QUANTITY': {
+      const { productId, color, size } = action.payload;
+      const updatedCart = state.cart.map((item) => {
+        if (item.product.id === productId && item.color.name === color && item.size.name === size) {
+          return { ...item, quantity: item.quantity > 1 ? item.quantity - 1 : 1 };
+        }
+        return item;
+      });
 
       return {
         ...state,
@@ -68,8 +99,22 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  const increaseQuantity = (productId, color, size) => {
+    dispatch({
+      type: 'INCREASE_QUANTITY',
+      payload: { productId, color, size },
+    });
+  };
+
+  const decreaseQuantity = (productId, color, size) => {
+    dispatch({
+      type: 'DECREASE_QUANTITY',
+      payload: { productId, color, size },
+    });
+  };
+
   return (
-    <CartContext.Provider value={{ cart: state.cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart: state.cart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity }}>
       {children}
     </CartContext.Provider>
   );

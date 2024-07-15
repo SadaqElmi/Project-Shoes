@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaTimes, FaStar } from 'react-icons/fa';
 import { Dialog, DialogBackdrop, DialogPanel, Radio, RadioGroup } from '@headlessui/react';
 import { jordanProducts } from '../../Backend/data'; // Assuming this is correctly imported
+import { useCart } from './CartContext'; // Import CartContext
 
 
 const Jordan = () => {
@@ -11,21 +12,19 @@ const Jordan = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
- 
+  const { addToCart } = useCart();
 
   useEffect(() => {
-    // Simulating product data fetch or setup
     setProducts(jordanProducts);
   }, []);
- 
-  
+
   const handleProductClick = (productId) => {
     const product = jordanProducts.find((p) => p.id === productId);
     if (product) {
-      setSelectedProduct(product); // Set selected product
-      setSelectedColor(product.colors[0]); // Set initial color selection
-      setSelectedSize(product.sizes[0]); // Set initial size selection
-      setOpen(true); // Open dialog
+      setSelectedProduct(product);
+      setSelectedColor(product.colors[0]);
+      setSelectedSize(product.sizes[0]);
+      setOpen(true);
     }
   };
 
@@ -57,10 +56,7 @@ const Jordan = () => {
               <h5 className="text-sm">${product.price}</h5>
               <button
                 className="py-1 px-4 bg-black text-white rounded-lg"
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent triggering the product click event
-                  
-                }}
+                onClick={()=> setOpen(true)}
               >
                 Add to bag
               </button>
@@ -153,7 +149,10 @@ const Jordan = () => {
                   <button
                     type="button"
                     className="mt-6 w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition duration-200"
-                   
+                    onClick={() => {
+                      addToCart(selectedProduct, selectedColor, selectedSize);
+                      setOpen(false);
+                    }}
                   >
                     Add to bag
                   </button>
