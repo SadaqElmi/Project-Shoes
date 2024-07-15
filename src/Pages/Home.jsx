@@ -1,17 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
 // eslint-disable-next-line no-unused-vars
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { FaCirclePlay } from "react-icons/fa6";
 import { FaStarOfLife } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { PiRepeat, PiTelegramLogoFill, PiVan, PiWallet } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import { useCart } from './CartContext';
+import { nikeProducts, jordanProducts, adidasProducts } from '../../Backend/data';
 
 const Home = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
+  const { addToCart } = useCart();
+  
   const handlePlayButtonClick = () => {
     if (videoRef.current) {
       videoRef.current.play();
@@ -37,8 +40,8 @@ const Home = () => {
 
   return (
     <>
-      {/*  Hero Section  */}
-      <motion.section
+     {/* Hero Section */}
+     <motion.section
         className="container p-2 max-w-screen-xl"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +84,7 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* Second Hero Section  */}
+      {/* Second Hero Section */}
 
       <motion.section
         className="container p-2 max-w-screen-xl"
@@ -115,7 +118,10 @@ const Home = () => {
                   38
                 </span>
               </div>
-              <button className="py-1 px-4 bg-black text-white rounded-3xl">
+              <button
+                className="py-1 px-4 bg-black text-white rounded-3xl"
+                onClick={() => addToCart(jordanProducts[0], jordanProducts[0].colors[0], jordanProducts[0].sizes[0])}
+              >
                 Add to bag
               </button>
             </div>
@@ -144,7 +150,10 @@ const Home = () => {
                   38
                 </span>
               </div>
-              <button className="py-1 px-4 bg-black text-white rounded-3xl">
+              <button
+                className="py-1 px-4 bg-black text-white rounded-3xl"
+                onClick={() => addToCart(nikeProducts[0], nikeProducts[0].colors[0], nikeProducts[0].sizes[0])}
+              >
                 Add to bag
               </button>
             </div>
@@ -165,7 +174,7 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* Section New Arrivals  */}
+      {/* Section New Arrivals */}
 
       <div className=" flex justify-between px-2">
         <p className="font-bold text-[40px]">New Arrivals</p>
@@ -176,7 +185,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Nike Shoes  */}
+      {/* Nike Shoes */}
       <h1 className="text-lg font-bold pl-3">Nike Shoes</h1>
       <motion.section
         className="NewArrival container flex p-2 max-w-screen-xl gap-3 items-center"
@@ -185,83 +194,33 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-          <h5 className="text-sm">Nike</h5>
-          <div className="flex items-center justify-center">
-            <img
-              className="w-[200px] h-40 object-contain"
-              src="/public/nike/nike__5 (1).png"
-              alt=""
-            />
+        {nikeProducts.slice(0, 4).map((product, index) => (
+          <div key={index} className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2">
+            <h5 className="text-sm">{product.name}</h5>
+            <div className="flex items-center justify-center">
+              <img className="w-[200px] h-40 object-contain" src={product.image} alt={product.alt} />
+            </div>
+            <div className=" flex justify-between px-2 rounded-lg mt-[5px] items-center">
+              <h5 className="text-sm">${product.price}</h5>
+              <button
+                className="py-1 px-4 bg-black text-white rounded-lg"
+                onClick={() => addToCart(product, product.colors[0], product.sizes[0])}
+              >
+                Add to bag
+              </button>
+            </div>
           </div>
-          <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-            <h5 className="text-sm">$50</h5>
-            <button className="py-1 px-4 bg-black text-white rounded-lg">
-              Add to bag
-            </button>
-          </div>
-        </div>
-
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-          <h5 className="text-sm">Nike</h5>
-          <div className="flex items-center justify-center">
-            <img
-              className="w-[200px] h-40 object-cover"
-              src="/public/nike/nike__5 (2).png"
-              alt=""
-            />
-          </div>
-          <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-            <h5 className="text-sm">$50</h5>
-            <button className="py-1 px-4 bg-black text-white rounded-lg">
-              Add to bag
-            </button>
-          </div>
-        </div>
-
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-          <h5 className="text-sm">Nike</h5>
-          <div className="flex items-center justify-center">
-            <img
-              className="w-[200px] h-40 object-cover"
-              src="/public/nike/nike__5 (3).png"
-              alt=""
-            />
-          </div>
-          <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-            <h5 className="text-sm">$50</h5>
-            <button className="py-1 px-4 bg-black text-white rounded-lg">
-              Add to bag
-            </button>
-          </div>
-        </div>
-
-        <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-          <h5 className="text-sm">Nike</h5>
-          <div className="flex items-center justify-center">
-            <img
-              className="w-[200px] h-40 object-contain"
-              src="/public/nike/nike__5 (4).png"
-              alt=""
-            />
-          </div>
-          <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-            <h5 className="text-sm">$50</h5>
-            <button className="py-1 px-4 bg-black text-white rounded-lg">
-              Add to bag
-            </button>
-          </div>
-        </div>
+        ))}
       </motion.section>
 
       <Link
-        className="float-right px-3 rounded-[5px] text-center  text-lg bg-black  mr-6 text-white"
+        className="float-right px-3 rounded-[5px] text-center text-lg bg-black mr-6 text-white"
         to="/Nike"
       >
         Show More{" "}
       </Link>
 
-      {/* Jorden Shoes  */}
+      {/* Jordan Shoes */}
       <h1 className="text-lg font-bold pl-3 mt-10">Jordan Shoes</h1>
       <motion.section
         className="NewArrival-second line container flex p-2 max-w-screen-xl gap-3 items-center"
@@ -270,82 +229,34 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="flex gap-2 w-[100%]">
-          <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-            <h5 className="text-sm">Jordan</h5>
+        {jordanProducts.slice(0, 4).map((product, index) => (
+          <div key={index} className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2">
+            <h5 className="text-sm">{product.name}</h5>
             <div className="flex items-center justify-center">
-              <img
-                className="w-[200px] h-40 object-contain"
-                src="/public/Jordan/A7.png"
-                alt=""
-              />
+              <img className="w-[200px] h-40 object-contain" src={product.image} alt={product.alt} />
             </div>
-            <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-              <h5 className="text-sm">$120</h5>
-              <button className="py-1 px-4 bg-black text-white rounded-lg">
+            <div className=" flex justify-between px-2 rounded-lg mt-[5px] items-center">
+              <h5 className="text-sm">${product.price}</h5>
+              <button
+                className="py-1 px-4 bg-black text-white rounded-lg"
+                onClick={() => addToCart(product, product.colors[0], product.sizes[0])}
+              >
                 Add to bag
               </button>
             </div>
           </div>
-          <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-            <h5 className="text-sm">Jordan</h5>
-            <div className="flex items-center justify-center">
-              <img
-                className="w-[200px] h-40 object-cover"
-                src="/public/Jordan/A5.png"
-                alt=""
-              />
-            </div>
-            <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-              <h5 className="text-sm">$120</h5>
-              <button className="py-1 px-4 bg-black text-white rounded-lg">
-                Add to bag
-              </button>
-            </div>
-          </div>
-          <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-            <h5 className="text-sm">Jordan</h5>
-            <div className="flex items-center justify-center">
-              <img
-                className="w-[200px] h-40 object-contain"
-                src="/public/Jordan/A9.png"
-                alt=""
-              />
-            </div>
-            <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-              <h5 className="text-sm">$120</h5>
-              <button className="py-1 px-4 bg-black text-white rounded-lg">
-                Add to bag
-              </button>
-            </div>
-          </div>
-          <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-            <h5 className="text-sm">Jordan</h5>
-            <div className="flex items-center justify-center">
-              <img
-                className="w-[200px] h-40 object-contain"
-                src="/public/Jordan/A4.png"
-                alt=""
-              />
-            </div>
-            <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-              <h5 className="text-sm">$120</h5>
-              <button className="py-1 px-4 bg-black text-white rounded-lg">
-                Add to bag
-              </button>
-            </div>
-          </div>
-        </div>
+        ))}
       </motion.section>
+
       <Link
-        className="float-right px-3 rounded-[5px] text-center  text-lg bg-black  mr-6 text-white"
+        className="float-right px-3 rounded-[5px] text-center text-lg bg-black mr-6 text-white"
         to="/Jordan"
       >
         Show More{" "}
       </Link>
 
-      {/* Addidas Shoes  */}
-      <h1 className="text-lg font-bold pl-3 mt-10">Addidas Shoes</h1>
+      {/* Adidas Shoes */}
+      <h1 className="text-lg font-bold pl-3 mt-10">Adidas Shoes</h1>
       <motion.section
         className="NewArrival-second line container flex p-2 max-w-screen-xl gap-3 items-center"
         initial={{ opacity: 0, y: 50 }}
@@ -353,75 +264,27 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="flex gap-2 w-[100%]">
-          <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-            <h5 className="text-sm">Adidas</h5>
+        {adidasProducts.slice(0, 4).map((product, index) => (
+          <div key={index} className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2">
+            <h5 className="text-sm">{product.name}</h5>
             <div className="flex items-center justify-center">
-              <img
-                className="w-[200px] h-40 object-contain"
-                src="/public/addidas/adidas (1).png"
-                alt=""
-              />
+              <img className="w-[200px] h-40 object-contain" src={product.image} alt={product.alt} />
             </div>
-            <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-              <h5 className="text-sm">$60</h5>
-              <button className="py-1 px-4 bg-black text-white rounded-lg">
+            <div className=" flex justify-between px-2 rounded-lg mt-[5px] items-center">
+              <h5 className="text-sm">${product.price}</h5>
+              <button
+                className="py-1 px-4 bg-black text-white rounded-lg"
+                onClick={() => addToCart(product, product.colors[0], product.sizes[0])}
+              >
                 Add to bag
               </button>
             </div>
           </div>
-          <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-            <h5 className="text-sm">Adidas</h5>
-            <div className="flex items-center justify-center">
-              <img
-                className="w-[200px] h-40 object-contain"
-                src="/public/addidas/adidas (2).png"
-                alt=""
-              />
-            </div>
-            <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-              <h5 className="text-sm">$30</h5>
-              <button className="py-1 px-4 bg-black text-white rounded-lg">
-                Add to bag
-              </button>
-            </div>
-          </div>
-          <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-            <h5 className="text-sm">Adidas</h5>
-            <div className="flex items-center justify-center">
-              <img
-                className="w-[200px] h-40 object-contain"
-                src="/public/addidas/adidas (3).png"
-                alt=""
-              />
-            </div>
-            <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-              <h5 className="text-sm">$70</h5>
-              <button className="py-1 px-4 bg-black text-white rounded-lg">
-                Add to bag
-              </button>
-            </div>
-          </div>
-          <div className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2  ">
-            <h5 className="text-sm">Adidas</h5>
-            <div className="flex items-center justify-center">
-              <img
-                className="w-[200px] h-40 object-contain"
-                src="/public/addidas/adidas (4).png"
-                alt=""
-              />
-            </div>
-            <div className=" flex  justify-between px-2 rounded-lg  mt-[5px] items-center">
-              <h5 className="text-sm">$20</h5>
-              <button className="py-1 px-4 bg-black text-white rounded-lg">
-                Add to bag
-              </button>
-            </div>
-          </div>
-        </div>
+        ))}
       </motion.section>
+
       <Link
-        className="float-right px-3 rounded-[5px] text-center  text-lg bg-black  mr-6 text-white"
+        className="float-right px-3 rounded-[5px] text-center text-lg bg-black mr-6 text-white"
         to="/Adidas"
       >
         Show More{" "}
