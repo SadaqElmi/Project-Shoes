@@ -5,11 +5,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 
+import { useCart } from "../Pages/CartContext";
 
 const Header = () => {
   const [isShopOpen, setIsShopOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  
+  // Consume cart from CartContext
+  const { cart } = useCart();
 
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   const dropdownVariants = {
     hidden: { opacity: 0, y: -10 },
@@ -34,7 +39,7 @@ const Header = () => {
               alt="logo"
             />
             <div className="items-center">
-              <ul className="flex  gap-4 cursor-pointer text-black/80 text-sm font-sans font-semibold">
+              <ul className="flex gap-4 cursor-pointer text-black/80 text-sm font-sans font-semibold">
                 <li className="font-bold">
                   <Link to="/">HOME</Link>
                 </li>
@@ -119,13 +124,12 @@ const Header = () => {
                 <IoBagHandleOutline className="text-2xl" />
               </Link>
               <span className="items-center absolute top-[5px] text-white right-[-7px] rounded-full border px-[5px] bg-green-500 py-[1px] text-xs font-semibold transition-colors">
-                0
+                {totalItems} {/* Display the number of items in the cart */}
               </span>
             </div>
             <div className="Profile ">
               <img className="w-[40px] h-[40px]  rounded-full cursor-pointer" src="/public/logo/luffy.jpg" alt="Luffy" />
             </div>
-           
           </div>
         </div>
       </div>
