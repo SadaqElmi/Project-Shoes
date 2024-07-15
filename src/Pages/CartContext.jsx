@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
-import React, { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useReducer, useEffect } from 'react';
 
 // Initial state
 const initialState = {
-  cart: [],
+  cart: JSON.parse(localStorage.getItem('cart')) || [],
 };
 
 // Create context
@@ -84,6 +83,10 @@ const cartReducer = (state, action) => {
 // Provider component
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(state.cart));
+  }, [state.cart]);
 
   const addToCart = (product, color, size) => {
     dispatch({
