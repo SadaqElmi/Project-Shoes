@@ -275,8 +275,8 @@ const Home = () => {
             <h5 className="text-sm">Jordan</h5>
             <div className="flex items-center justify-center">
               <img
-                className="w-[200px] h-40 object-cover"
-                src="/public/Jordan/A1.png"
+                className="w-[200px] h-40 object-contain"
+                src="/public/Jordan/A7.png"
                 alt=""
               />
             </div>
@@ -292,7 +292,7 @@ const Home = () => {
             <div className="flex items-center justify-center">
               <img
                 className="w-[200px] h-40 object-cover"
-                src="/public/Jordan/A2.png"
+                src="/public/Jordan/A5.png"
                 alt=""
               />
             </div>
@@ -308,7 +308,7 @@ const Home = () => {
             <div className="flex items-center justify-center">
               <img
                 className="w-[200px] h-40 object-contain"
-                src="/public/Jordan/A3.png"
+                src="/public/Jordan/A9.png"
                 alt=""
               />
             </div>
