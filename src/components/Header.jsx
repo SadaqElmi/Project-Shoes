@@ -4,9 +4,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
+
+
 const Header = () => {
   const [isShopOpen, setIsShopOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+
 
   const dropdownVariants = {
     hidden: { opacity: 0, y: -10 },

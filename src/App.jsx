@@ -9,11 +9,9 @@ import Cart from "./Pages/Cart";
 import Adidas from "./Pages/Adidas";
 
 
-
-
 function App() {
   return (
-    <>
+    
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -22,14 +20,12 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/nike" element={<Nike />} />
             <Route path="/jordan" element={<Jorden />} />
-       
             <Route path="/cart" element={<Cart />} />
             <Route path="/adidas" element={<Adidas />} />
-           
           </Route>
         </Routes>
       </Router>
-    </>
+   
   );
 }
 

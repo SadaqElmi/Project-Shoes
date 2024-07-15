@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,} from 'react';
 import { motion } from 'framer-motion';
 import { FaTimes, FaStar } from 'react-icons/fa';
 import { Dialog, DialogBackdrop, DialogPanel, Radio, RadioGroup } from '@headlessui/react';
 import { adidasProducts } from '../../Backend/data'; // Assuming this is correctly imported
+
 
 const Adidas = () => {
   const [products, setProducts] = useState([]);
@@ -11,16 +12,13 @@ const Adidas = () => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
 
+
   useEffect(() => {
     // Simulating product data fetch or setup
     setProducts(adidasProducts);
   }, []);
-
-  const handleAddToCart = (product) => {
-    console.log('Product added to cart:', product);
-    // Implement your cart logic here
-  };
-
+ 
+  
   const handleProductClick = (productId) => {
     const product = adidasProducts.find((p) => p.id === productId);
     if (product) {
@@ -59,7 +57,10 @@ const Adidas = () => {
               <h5 className="text-sm">${product.price}</h5>
               <button
                 className="py-1 px-4 bg-black text-white rounded-lg"
-                onClick={() => handleAddToCart(product)}
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent triggering the product click event
+                  
+                }}
               >
                 Add to bag
               </button>
@@ -82,8 +83,8 @@ const Adidas = () => {
               <span className="sr-only">Close</span>
             </button>
 
-            <div className="flex">
-              <div className="w-1/2 mr-8">
+            <div className="flex items-center">
+              <div className="w-[200px] mr-8">
                 <img src={selectedProduct?.image} alt={selectedProduct?.alt} className="rounded-lg" />
               </div>
               <div className="w-1/2">
@@ -134,13 +135,14 @@ const Adidas = () => {
                         <Radio
                           key={size.name}
                           value={size}
+                          className={({ checked }) =>
+                            classNames(
+                              'cursor-pointer bg-white text-gray-900 shadow-sm rounded-md px-4 py-2 text-sm',
+                              checked ? 'border-2 border-blue-500' : 'border',
+                              !size.inStock && 'cursor-not-allowed bg-gray-50 text-gray-200'
+                            )
+                          }
                           disabled={!size.inStock}
-                          className={classNames(
-                            'cursor-pointer bg-white text-gray-900 shadow-sm rounded-md px-4 py-2 text-sm',
-                            {
-                              'cursor-not-allowed bg-gray-50 text-gray-200': !size.inStock,
-                            }
-                          )}
                         >
                           <span className="block text-center">{size.name}</span>
                         </Radio>
@@ -151,7 +153,7 @@ const Adidas = () => {
                   <button
                     type="button"
                     className="mt-6 w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition duration-200"
-                    onClick={() => handleAddToCart(selectedProduct)}
+                   
                   >
                     Add to bag
                   </button>
