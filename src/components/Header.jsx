@@ -10,7 +10,7 @@ import { useCart } from "../Pages/CartContext";
 const Header = () => {
   const [isShopOpen, setIsShopOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  
+
   // Consume cart from CartContext
   const { cart } = useCart();
 
@@ -35,7 +35,7 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <img
               className="w-20 h-16"
-              src="/public/images/jordan-logo-rpreview.png"
+              src="/images/jordan-logo-rpreview.png"
               alt="logo"
             />
             <div className="items-center">
@@ -128,7 +128,11 @@ const Header = () => {
               </span>
             </div>
             <div className="Profile ">
-              <img className="w-[40px] h-[40px]  rounded-full cursor-pointer" src="/public/logo/luffy.jpg" alt="Luffy" />
+              <img
+                className="w-[40px] h-[40px]  rounded-full cursor-pointer"
+                src="/logo/luffy.jpg"
+                alt="Luffy"
+              />
             </div>
           </div>
         </div>

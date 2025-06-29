@@ -7,14 +7,18 @@ import { FaStarOfLife } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { PiRepeat, PiTelegramLogoFill, PiVan, PiWallet } from "react-icons/pi";
 import { Link } from "react-router-dom";
-import { useCart } from './CartContext';
-import { nikeProducts, jordanProducts, adidasProducts } from '../../Backend/data';
+import { useCart } from "./CartContext";
+import {
+  nikeProducts,
+  jordanProducts,
+  adidasProducts,
+} from "../../Backend/data";
 
 const Home = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const { addToCart } = useCart();
-  
+
   const handlePlayButtonClick = () => {
     if (videoRef.current) {
       videoRef.current.play();
@@ -40,8 +44,8 @@ const Home = () => {
 
   return (
     <>
-     {/* Hero Section */}
-     <motion.section
+      {/* Hero Section */}
+      <motion.section
         className="container p-2 max-w-screen-xl"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +82,7 @@ const Home = () => {
           </div>
           <img
             className="w-2/6 bg-black rounded-md"
-            src="/public/images/nike rtx.jpg"
+            src="/images/nike rtx.jpg"
             alt="img"
           />
         </div>
@@ -102,7 +106,7 @@ const Home = () => {
             <div>
               <img
                 className="w-60"
-                src="/public/images/air-jordan-6-removebg.png"
+                src="/images/air-jordan-6-removebg.png"
                 alt=""
               />
             </div>
@@ -120,7 +124,13 @@ const Home = () => {
               </div>
               <button
                 className="py-1 px-4 bg-black text-white rounded-3xl"
-                onClick={() => addToCart(jordanProducts[0], jordanProducts[0].colors[0], jordanProducts[0].sizes[0])}
+                onClick={() =>
+                  addToCart(
+                    jordanProducts[0],
+                    jordanProducts[0].colors[0],
+                    jordanProducts[0].sizes[0]
+                  )
+                }
               >
                 Add to bag
               </button>
@@ -134,7 +144,7 @@ const Home = () => {
             <div>
               <img
                 className="w-60 h-32 mt-2"
-                src="/public/images/air-max-plus-mens-removebg.png"
+                src="/images/air-max-plus-mens-removebg.png"
                 alt=""
               />
             </div>
@@ -152,7 +162,13 @@ const Home = () => {
               </div>
               <button
                 className="py-1 px-4 bg-black text-white rounded-3xl"
-                onClick={() => addToCart(nikeProducts[0], nikeProducts[0].colors[0], nikeProducts[0].sizes[0])}
+                onClick={() =>
+                  addToCart(
+                    nikeProducts[0],
+                    nikeProducts[0].colors[0],
+                    nikeProducts[0].sizes[0]
+                  )
+                }
               >
                 Add to bag
               </button>
@@ -195,16 +211,25 @@ const Home = () => {
         viewport={{ once: true }}
       >
         {nikeProducts.slice(0, 4).map((product, index) => (
-          <div key={index} className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2">
+          <div
+            key={index}
+            className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2"
+          >
             <h5 className="text-sm">{product.name}</h5>
             <div className="flex items-center justify-center">
-              <img className="w-[200px] h-40 object-contain" src={product.image} alt={product.alt} />
+              <img
+                className="w-[200px] h-40 object-contain"
+                src={product.image}
+                alt={product.alt}
+              />
             </div>
             <div className=" flex justify-between px-2 rounded-lg mt-[5px] items-center">
               <h5 className="text-sm">${product.price}</h5>
               <button
                 className="py-1 px-4 bg-black text-white rounded-lg"
-                onClick={() => addToCart(product, product.colors[0], product.sizes[0])}
+                onClick={() =>
+                  addToCart(product, product.colors[0], product.sizes[0])
+                }
               >
                 Add to bag
               </button>
@@ -230,16 +255,25 @@ const Home = () => {
         viewport={{ once: true }}
       >
         {jordanProducts.slice(0, 4).map((product, index) => (
-          <div key={index} className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2">
+          <div
+            key={index}
+            className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2"
+          >
             <h5 className="text-sm">{product.name}</h5>
             <div className="flex items-center justify-center">
-              <img className="w-[200px] h-40 object-contain" src={product.image} alt={product.alt} />
+              <img
+                className="w-[200px] h-40 object-contain"
+                src={product.image}
+                alt={product.alt}
+              />
             </div>
             <div className=" flex justify-between px-2 rounded-lg mt-[5px] items-center">
               <h5 className="text-sm">${product.price}</h5>
               <button
                 className="py-1 px-4 bg-black text-white rounded-lg"
-                onClick={() => addToCart(product, product.colors[0], product.sizes[0])}
+                onClick={() =>
+                  addToCart(product, product.colors[0], product.sizes[0])
+                }
               >
                 Add to bag
               </button>
@@ -265,16 +299,25 @@ const Home = () => {
         viewport={{ once: true }}
       >
         {adidasProducts.slice(0, 4).map((product, index) => (
-          <div key={index} className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2">
+          <div
+            key={index}
+            className="flex-1 bg-gray-200 flex flex-col rounded-xl p-2"
+          >
             <h5 className="text-sm">{product.name}</h5>
             <div className="flex items-center justify-center">
-              <img className="w-[200px] h-40 object-contain" src={product.image} alt={product.alt} />
+              <img
+                className="w-[200px] h-40 object-contain"
+                src={product.image}
+                alt={product.alt}
+              />
             </div>
             <div className=" flex justify-between px-2 rounded-lg mt-[5px] items-center">
               <h5 className="text-sm">${product.price}</h5>
               <button
                 className="py-1 px-4 bg-black text-white rounded-lg"
-                onClick={() => addToCart(product, product.colors[0], product.sizes[0])}
+                onClick={() =>
+                  addToCart(product, product.colors[0], product.sizes[0])
+                }
               >
                 Add to bag
               </button>
@@ -331,7 +374,6 @@ const Home = () => {
 
       <div className="flex justify-between px-2">
         <p className="font-bold text-[40px] pl-2">Blog Post</p>
-        
       </div>
       <motion.section
         className="plog post container p-2 max-w-screen-xl flex gap-4"
@@ -343,7 +385,7 @@ const Home = () => {
         <div className="w-1/3 bg-gray-200 flex flex-col items-center py-4 pb-5  rounded-xl">
           <img
             className=" w-[330px] h-[200px] rounded-lg"
-            src="/public/images/NIKE AIR MAX 90.png"
+            src="/images/NIKE AIR MAX 90.png"
             alt="image"
           />
           <div className=" mr-[60px]">
@@ -358,7 +400,7 @@ const Home = () => {
         <div className="w-1/3 bg-gray-200 flex flex-col items-center py-4 px-0 rounded-xl">
           <img
             className=" w-[330px] h-[200px] rounded-lg"
-            src="/public/images/NIKE GAMMA FORCE.png"
+            src="/images/NIKE GAMMA FORCE.png"
             alt="image"
           />
           <div className=" mr-[74px]">
@@ -373,7 +415,7 @@ const Home = () => {
         <div className="w-1/3 bg-gray-200 flex flex-col items-center py-4 px-0 rounded-xl">
           <img
             className=" w-[330px] h-[200px] rounded-lg"
-            src="/public/images/AIR JORDAN 1 LOW.png"
+            src="/images/AIR JORDAN 1 LOW.png"
             alt="image"
           />
           <div className=" mr-[60px]">
@@ -416,7 +458,7 @@ const Home = () => {
           <video
             ref={videoRef}
             className="w-full rounded-xl"
-            src="/public/videos/videoplayback.mp4"
+            src="/videos/videoplayback.mp4"
             onClick={handleVideoClick}
             onPause={handleVideoPause}
             onPlay={() => setIsPlaying(true)}

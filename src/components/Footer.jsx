@@ -21,14 +21,14 @@ const Footer = () => {
               <div className="flex gap-4">
                 <img
                   className="w-18 h-12 ml-4 cursor-pointer"
-                  src="/public/images/jordan-white-2.png"
+                  src="/images/jordan-white-2.png"
                   alt="Logo"
                 />
                 <ul className="flex items-center gap-14 text-[13px] cursor-pointer">
                   <li className="hover:text-gray-400">
                     <Link to="/about">About Us</Link>
                   </li>
-                 
+
                   <li className="hover:text-gray-400">
                     <Link to="/about">Terms & conditions</Link>
                   </li>
